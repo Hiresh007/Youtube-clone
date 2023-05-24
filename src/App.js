@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Home from "./components/Home";
+import CardDisplay from "./components/CardDisplay";
+import { Route, Routes } from "react-router-dom";
+import { useStateContext } from "./state/StateContext";
+const App = () => {
+  const { display } = useStateContext();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      {display && <Sidebar />}
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/video" element={<CardDisplay />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

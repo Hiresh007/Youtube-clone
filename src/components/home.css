@@ -1,0 +1,32 @@
+.home-pagination {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.home-display {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    padding: 1.5em;
+}
+
+.home-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 6em;
+}
+.card-vids{
+    border-radius: 2ems;
+}
+@media screen and (max-width:1024px) {
+    .home-display{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (max-width:660px) {
+    .home-display{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
